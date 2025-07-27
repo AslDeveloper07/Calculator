@@ -108,21 +108,17 @@ const WindowsStyleCalculator = () => {
   ];
 
   return (
-    <div className="w-[320px] bg-[#1e1e1e] text-white mx-auto mt-10 rounded-xl overflow-hidden shadow-2xl border border-gray-700">
-      {/* Header */}
-      <div className="p-3 bg-[#2b2b2b] flex items-center justify-between text-sm font-semibold">
-        <div className="text-white">Standard</div>
-        <div className="text-gray-400">🕘</div>
+    <div className=" w-[320px] bg-[#1a1f32] text-white mx-auto relative top-[8rem] rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+      <div className="p-3 bg-[#1a1f32] flex items-center justify-between text-sm font-semibold ">
+        <div className="text-white ">Windows 11 Calculator</div>
       </div>
 
-      {/* Display */}
-      <div className="px-4 pt-6 pb-2 min-h-[80px] bg-[#1e1e1e]">
-        <div className="text-right text-gray-400 text-sm break-all">{expression || "0"}</div>
+      <div className="px-4 pt-6 pb-2 min-h-[80px] bg-[#1a1f32]">
+        <div className="text-right text-gray-400 text-3xl break-all ">{expression || "0"}</div>
         <div className="text-right text-3xl text-white font-bold break-all">{result}</div>
       </div>
 
-      {/* Buttons */}
-      <div className="grid grid-cols-4 gap-2 p-3 bg-[#252526]">
+      <div className="grid grid-cols-4 gap-1 p-3 bg-[#1a1f32]">
         {buttons.map((btn, idx) => (
           <button
             key={idx}
@@ -130,12 +126,12 @@ const WindowsStyleCalculator = () => {
             className={`p-4 text-lg rounded-md font-semibold transition active:scale-95
               ${
                 btn === "="
-                  ? "bg-blue-500 text-white col-span-1"
+                  ? "bg-[#4cc2ff] text-white col-span-1"
                   : btn === "C" || btn === "CE"
-                  ? "bg-[#444] text-red-400"
+                  ? "bg-[#2c3147] text-red-400"
                   : ["+", "-", "*", "/", "√", "x²", "⅟x", "%"].includes(btn)
-                  ? "bg-[#333] text-blue-300"
-                  : "bg-[#2d2d2d] text-white"
+                  ? "bg-[#2d3245] text-blue-300"
+                  : "bg-[#353a50] text-white"
               }
             `}
           >
