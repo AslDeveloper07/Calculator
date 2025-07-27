@@ -1,11 +1,10 @@
 import React from 'react'
-import Calculator from './Calculator'
+import WinCalculator from './Components/WinCalculator'
 
 const App = () => {
   return (
     <div>
-<Calculator/>
-
+      <WinCalculator/>
     </div>
   )
 }
