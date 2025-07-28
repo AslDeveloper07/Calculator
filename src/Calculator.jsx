@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const WindowsStyleCalculator = () => {
   const [expression, setExpression] = useState("");
   const [result, setResult] = useState("");
+
+  const containerRef = useRef(null); // 🔹 ref container uchun
+
+  useEffect(() => {
+    // Komponent yuklanganda containerga fokus beramiz
+    containerRef.current?.focus();
+  }, []);
 
   const calculate = () => {
     try {
@@ -108,14 +115,22 @@ const WindowsStyleCalculator = () => {
   ];
 
   return (
-    <div className=" w-[320px] bg-[#1a1f32] text-white mx-auto relative top-[8rem] rounded-xl overflow-hidden shadow-2xl border border-gray-700">
-      <div className="p-3 bg-[#1a1f32] flex items-center justify-between text-sm font-semibold ">
-        <div className="text-white ">Windows 11 Calculator</div>
+    <div
+      ref={containerRef}
+      tabIndex={0}
+      className="calculator-container w-[320px] bg-[#1a1f32] text-white mx-auto relative top-[8rem] rounded-xl overflow-hidden shadow-2xl border border-gray-700"
+    >
+      <div className="p-3 bg-[#1a1f32] flex items-center justify-between text-sm font-semibold">
+        <div className="text-white">Windows 11 Calculator</div>
       </div>
 
       <div className="px-4 pt-6 pb-2 min-h-[80px] bg-[#1a1f32]">
-        <div className="text-right text-gray-400 text-3xl break-all ">{expression || "0"}</div>
-        <div className="text-right text-3xl text-white font-bold break-all">{result}</div>
+        <div className="text-right text-gray-400 text-3xl break-all">
+          {expression || "0"}
+        </div>
+        <div className="text-right text-3xl text-white font-bold break-all">
+          {result}
+        </div>
       </div>
 
       <div className="grid grid-cols-4 gap-1 p-3 bg-[#1a1f32]">
